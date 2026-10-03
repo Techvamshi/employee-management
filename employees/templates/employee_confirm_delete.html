@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Delete employee</h1>
+<p>Delete <strong>{{ employee.name }}</strong> ({{ employee.employee_id }})? This cannot be undone.</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn">Delete employee</button>
+  <a class="btn outline" href="{% url 'employee_detail' employee.pk %}">Cancel</a>
+</form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Departments</h1>
+
+<form method="post" class="form inline">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn">Add department</button>
+</form>
+
+{% if departments %}
+<table>
+  <tr><th>Department</th><th>Employees</th></tr>
+  {% for d in departments %}
+  <tr><td>{{ d.name }}</td><td>{{ d.employee_count }}</td></tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>No departments yet. Add one above before adding employees.</p>
+{% endif %}
+{% endblock %}

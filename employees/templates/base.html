@@ -1,0 +1,21 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Employee Management{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'employees/style.css' %}">
+</head>
+<body>
+  <header>
+    <a class="brand" href="{% url 'dashboard' %}">Employee Management</a>
+    <nav>
+      <a href="{% url 'dashboard' %}">Dashboard</a>
+      <a href="{% url 'employee_list' %}">Employees</a>
+      <a href="{% url 'department_list' %}">Departments</a>
+      <a href="{% url 'employee_add' %}">Add Employee</a>
+    </nav>
+  </header>
+  <main>{% block content %}{% endblock %}</main>
+</body>
+</html>

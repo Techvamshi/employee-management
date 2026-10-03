@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Dashboard</h1>
+
+<div class="stats">
+  <div class="stat"><span class="num">{{ total_employees }}</span>Total employees</div>
+  <div class="stat"><span class="num">{{ total_departments }}</span>Total departments</div>
+</div>
+
+<h2>Recent employees</h2>
+{% if recent_employees %}
+<table>
+  <tr><th>ID</th><th>Name</th><th>Department</th><th>Joined</th><th></th></tr>
+  {% for e in recent_employees %}
+  <tr>
+    <td>{{ e.employee_id }}</td><td>{{ e.name }}</td><td>{{ e.department }}</td>
+    <td>{{ e.joining_date }}</td>
+    <td class="actions"><a href="{% url 'employee_detail' e.pk %}">View</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>No employees yet. <a href="{% url 'employee_add' %}">Add the first employee</a>.</p>
+{% endif %}
+{% endblock %}
