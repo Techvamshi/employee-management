@@ -1,3 +1,3 @@
-# Employee Management (Django, black & white)
+Employee Management (Django)
 
  
